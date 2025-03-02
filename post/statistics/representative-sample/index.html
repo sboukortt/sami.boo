@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          How much is a representative sample? - Sami
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="Sami" />
+  <meta name="description" content="A look into the relation between sample size and certainty, for binary outcomes." />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.145.0" />
+
+
+<link rel="canonical" href="https://sami.boo/post/statistics/representative-sample/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.e826e860368147e5a6685e686355e4d7789023c18c9ea2e78b35f6786ce92736.css" integrity="sha256-6CboYDaBR&#43;WmaF5oY1Xk13iQI8GMnqLnizX2eGzpJzY=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:url" content="https://sami.boo/post/statistics/representative-sample/">
+  <meta property="og:site_name" content="Sami">
+  <meta property="og:title" content="How much is a representative sample?">
+  <meta property="og:description" content="A look into the relation between sample size and certainty, for binary outcomes.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2024-04-23T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-04-23T00:00:00+00:00">
+
+  <meta itemprop="name" content="How much is a representative sample?">
+  <meta itemprop="description" content="A look into the relation between sample size and certainty, for binary outcomes.">
+  <meta itemprop="datePublished" content="2024-04-23T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-04-23T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1621">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="How much is a representative sample?">
+  <meta name="twitter:description" content="A look into the relation between sample size and certainty, for binary outcomes.">
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Sami</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://sami.boo/">Home</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://sami.boo/post/">Articles</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          <div class="mobile-menu-parent">
+            <span class="mobile-submenu-open"></span>
+            <a href="https://sami.boo/panoramas/">
+              Panoramas
+            </a>
+          </div>
+          <ul class="mobile-submenu-list">
+            
+              <li>
+                <a href="https://sami.photo/pano/golzernsee/">Golzernsee</a>
+              </li>
+            
+              <li>
+                <a href="https://sami.photo/pano/premier-inn-old-street/">Premier Inn London City (Old Street)</a>
+              </li>
+            
+          </ul>
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://sami.photo/" rel="noopener" target="_blank">
+              Photos
+              
+              <i class="iconfont">
+                <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M623.36 272.96 473.216 423.04C467.2 429.056 467.072 438.656 472.896 444.416c0 0-6.72-6.656 1.6 1.6C496.064 467.648 528.64 500.224 528.64 500.224 534.464 506.048 544 505.856 550.016 499.904l150.08-150.144 67.328 66.432c9.024 8.96 27.456 4.544 30.4-8.96 19.968-92.608 46.656-227.52 46.656-227.52 6.848-34.496-16.192-56.704-49.92-49.92 0 0-134.656 26.816-227.328 46.784C560.32 178.048 556.352 182.272 554.752 187.136c-3.2 6.208-3.008 14.208 3.776 20.992L623.36 272.96z"></path>
+  <path d="M841.152 457.152c-30.528 0-54.784 24.512-54.784 54.656l0 274.752L237.696 786.56 237.696 237.696l206.016 0c6.656 0 10.752 0 13.248 0C487.68 237.696 512 213.184 512 182.848 512 152.32 487.36 128 456.96 128L183.04 128C153.216 128 128 152.576 128 182.848c0 3.136 0.256 6.272 0.768 9.28C128.256 195.136 128 198.272 128 201.408l0 639.488c0 0.064 0 0.192 0 0.256 0 0.128 0 0.192 0 0.32 0 30.528 24.512 54.784 54.784 54.784l646.976 0c6.592 0 9.728 0 11.712 0 28.736 0 52.928-22.976 54.464-51.968C896 843.264 896 842.304 896 841.344l0-20.352L896 561.408 896 512.128C896 481.792 871.424 457.152 841.152 457.152z"></path>
+</svg>
+
+              </i>
+            </a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+
+    
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      Sami
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://sami.boo/">Home</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://sami.boo/post/">Articles</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          <a class="menu-item-link menu-parent" href="https://sami.boo/panoramas/">Panoramas</a>
+          <ul class="submenu">
+            
+              <li class="submenu-item">
+                <a href="https://sami.photo/pano/golzernsee/">Golzernsee</a>
+              </li>
+            
+              <li class="submenu-item">
+                <a href="https://sami.photo/pano/premier-inn-old-street/">Premier Inn London City (Old Street)</a>
+              </li>
+            
+          </ul>
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://sami.photo/" rel="noopener" target="_blank">
+              Photos
+              
+              <i class="iconfont">
+                <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M623.36 272.96 473.216 423.04C467.2 429.056 467.072 438.656 472.896 444.416c0 0-6.72-6.656 1.6 1.6C496.064 467.648 528.64 500.224 528.64 500.224 534.464 506.048 544 505.856 550.016 499.904l150.08-150.144 67.328 66.432c9.024 8.96 27.456 4.544 30.4-8.96 19.968-92.608 46.656-227.52 46.656-227.52 6.848-34.496-16.192-56.704-49.92-49.92 0 0-134.656 26.816-227.328 46.784C560.32 178.048 556.352 182.272 554.752 187.136c-3.2 6.208-3.008 14.208 3.776 20.992L623.36 272.96z"></path>
+  <path d="M841.152 457.152c-30.528 0-54.784 24.512-54.784 54.656l0 274.752L237.696 786.56 237.696 237.696l206.016 0c6.656 0 10.752 0 13.248 0C487.68 237.696 512 213.184 512 182.848 512 152.32 487.36 128 456.96 128L183.04 128C153.216 128 128 152.576 128 182.848c0 3.136 0.256 6.272 0.768 9.28C128.256 195.136 128 198.272 128 201.408l0 639.488c0 0.064 0 0.192 0 0.256 0 0.128 0 0.192 0 0.32 0 30.528 24.512 54.784 54.784 54.784l646.976 0c6.592 0 9.728 0 11.712 0 28.736 0 52.928-22.976 54.464-51.968C896 843.264 896 842.304 896 841.344l0-20.352L896 561.408 896 512.128C896 481.792 871.424 457.152 841.152 457.152z"></path>
+</svg>
+
+              </i>
+            </a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">How much is a representative sample?</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      Sami
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2024-04-23">
+      Tuesday 23 April 2024
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    
+
+    
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <p>When you check whether your soup has enough salt, provided that it’s sufficiently stirred, you don’t need to taste the whole bowl – you assume that the small amount you try contains approximately the same proportion of salt molecules as does the rest of the soup.</p>
+<p>In a similar vein, let’s imagine that a large website wishes to determine what proportion $\theta$ of its users are bots. It samples 300 of them at random and finds that 15 of them are bots. How sure should we be of this estimate of about 5% for $\theta$?</p>
+<h2 id="sampling-with-replacement-or-from-a-very-large-population">Sampling with replacement (or from a very large population)</h2>
+<p>Sampling with replacement is akin to coin flipping, i.e. in this setup, our problem is equivalent to flipping a coin 300 times, obtaining 15 “heads” and determining the likely bias $\theta$ of the coin (with $\theta = 50\%$ being a fair coin, $\theta = 0\%$ being all “tails”, and $\theta = 100\%$ being all “heads”).</p>
+<p>We will solve this using Bayes’ theorem (but as you’ll see in a minute, we won’t need to carry out all the calculations ourselves). Let’s denote: $D = \text{“15 ‘heads’ out of 300 flips”}$</p>
+<p>We then have:</p>
+\begin{equation*}
+  \overbrace{p(\theta \mid D)}^{\substack{\text{posterior} \\ \text{probability} \\ \text{density}}} = \frac{\overbrace{p(D \mid \theta)}^\text{likelihood}}{\underbrace{p(D)}_{\substack{\text{marginal} \\ \text{probability}}}} \cdot \overbrace{p(\theta)}^{\substack{\text{prior} \\ \text{probability} \\ \text{density}}}
+\end{equation*}<p>Where the likelihood of our outcome $D$ is:</p>
+\begin{equation*}
+  p(D \mid \theta) = {300 \choose 15} \cdot \theta^{15} \cdot (1 - \theta)^{300 - 15}
+\end{equation*}<p>Which is the probability mass function of a binomial distribution with parameters $(n = 300, p = \theta)$, evaluated at $k = 15$.</p>
+<h3 id="conjugate-priors">Conjugate priors</h3>
+<p>It just so happens that when the likelihood and prior have certain forms, the posterior distribution can be expressed in terms of the prior distribution with changed parameters. (See Wikipedia’s <a href="https://en.wikipedia.org/wiki/Conjugate_prior#Table_of_conjugate_distributions">table</a>.)</p>
+<p>One such case is when the likelihood is binomial (as it is for us) with parameters $n$ (number of trials) and $k$ (number of “successes”) and the prior is a beta distribution with parameters $\alpha$ and $\beta$. The posterior is then also a beta distribution, with parameters $\alpha + k$ and $\beta + (n - k)$.</p>
+<p>If our prior probability distribution for $\theta$ is that all possible values are equally likely, we can express that as a uniform distribution between 0 and 1, but we can <em>also</em>, more conveniently for our purposes, express it as a beta distribution $\operatorname{Beta}(1, 1)$.</p>
+<p>Our posterior distribution, then, is $\operatorname{Beta}(1 + 15, 1 + (300 - 15))$, i.e. $\operatorname{Beta}(16, 286)$, which looks like this:</p>
+<figure>
+  <img src="coin.svg" alt="Plot of the posterior probability distribution for the proportion of bots, showing a moderately sharp peak around 5%">
+</figure>
+<p>That is, with a uniform prior on $\theta$ (which may or may not be reasonable depending on what is actually known), observing 15 “heads” out of 300 flips (or 15 bots out of 300 users) should make us 95% sure that $\theta$ is between 2.9% and 7.9%.</p>
+<h2 id="sampling-without-replacement">Sampling without replacement</h2>
+<p>If we sample without replacement from a finite population, intuition suggests that we should be even more sure about our result – indeed, in the limit where we have sampled every single element, we are fully certain about it. Even before that point, having sampled 9 out of all 10 users of a website (it’s not a very big website) and found 8 of them to be real, the proportion of real users can only be either 80% (if the last one is not real) or 90% (if it is, which seems likely in light of the previous outcomes). Let’s quantify this.</p>
+<p>Let’s denote the population size as $N$, and the (unknown) total number of “successes” in it as $K$. We sample $n$ members without replacement, and find $k$ successes among them.</p>
+<p>The likelihood for this outcome is described by the so-called “hypergeometric” distribution, with parameters $(N, K, n)$, evaluated at $k$.</p>
+<p>The conjugate prior, then, is that if our prior for $K$ is a beta-binomial distribution with parameters $(N, \alpha, \beta)$, i.e. a binomial distribution with $N$ trials in which the probability of success is itself a beta distribution with parameters $(\alpha, \beta)$, then, having sampled $n$ members and observed $k$ successes, the posterior distribution for the number of successes <em>among the $(N - n)$ not-yet-sampled members</em> is a beta-binomial distribution with parameters $(N - n, \alpha + k, \beta + (n - k))$. If we want the total number of successes $K$, we then need to add the $k$ successes that we observed. Finally, if we want the proportion of successes, and not their absolute number, we can divide that by $N$.</p>
+<p>So, if we now repeat our original scenario, in which we sample 300 users and find that 15 of them are bots, but we now assume the sampling to have taken place without replacement out of 500 total users, and our <em>a priori</em> expectation is that we considered all possible numbers of bots as equally plausible ($\operatorname{BetaBin}(500, 1, 1)$), then we find that the plausible total number of bots out of 500 is described by $15 + \operatorname{BetaBin}(500 - 300, 1 + 15, 1 + (300 - 15))$, i.e. $15 + \operatorname{BetaBin}(200, 16, 286)$, which looks like this:</p>
+<figure>
+  <img src="without-replacement.svg" alt="Plot of the posterior probability distribution for the absolute number of bots, showing a moderate peak around 25">
+</figure>
+<p>(Strictly speaking, the probability is non-zero up to and including 215, because it is theoretically possible that all remaining users are bots, but it quickly becomes vanishingly implausible given the previous data and the prior information.)</p>
+<p>If we then divide this by 500, the total number of users, we find the probability mass function for the various discrete values that the proportion could take:</p>
+<figure>
+  <img src="proportion-without-replacement-500.svg" alt="Plot of the posterior probability distribution for the proportion, showing it to be narrower than in the case of sampling with replacement">
+</figure>
+<p>Superimposed is the shape of the (continuous) probability distribution that we obtained when we assumed sampling with replacement or from a huge population.</p>
+<p>In this case, knowing that we were sampling without replacement from a population of 500 has reduced the uncertainty in our estimate of $\theta$, with 95% of the probability mass now being encompassed by just $[3.6\%, 6.6\%]$ instead of requiring $[2.9\%, 7.9\%]$.</p>
+<p>As we increase $N$ (the size of the population), the uncertainty increases and the estimate approaches that obtained using sampling with replacement. Here is $N = 1000$:</p>
+<figure>
+  <img src="proportion-without-replacement-1000.svg" alt="Plot of the posterior probability distribution for the proportion if the population size is 1000">
+</figure>
+<p>And here is 5000:</p>
+<figure>
+  <img src="proportion-without-replacement-5000.svg" alt="Plot of the posterior probability distribution for the proportion if the population size is 5000; the distribution starts to approach the continuous one">
+</figure>
+<p>As can be seen, for a fixed number of samples, even though the uncertainty on the <em>absolute</em> number of successes in the whole population grows unboundedly as the number of unsampled members increases, the uncertainty on the <em>relative</em> proportion doesn’t; it hits a limit.</p>
+<h2 id="sampling-bias">Sampling bias</h2>
+<p>The previous discussion assumes the absence of sampling bias, i.e. it assumes that a “success” and a “failure” have equal chances of being considered for sampling. (<em>Not</em> that we are equally likely to sample either.)</p>
+<p>Sampling bias, or selection bias, occurs when this assumption is not true, either from direct causation (e.g. someone with an unsatisfactory experience may be more likely to go out of their way to write a review) or from other forms of correlation. (This is what happens when the soup mentioned at the start of the post is <em>not</em> sufficiently stirred.)</p>
+<p>To some extent, we can try to account for this in our estimates. Let’s look at the case of sampling with replacement / from a huge population. Suppose that each sample that we could potentially get has an unknown probability $\gamma_\text{success}$ of making it to the sampling process if it’s a success, or $\gamma_\text{failure}$ if it’s a failure.</p>
+<p>That means that the final probability for a sample we do see to be a success is:</p>
+$$\frac{\gamma_\text{success} \cdot \theta}{\gamma_\text{success} \cdot \theta + \gamma_\text{failure} \cdot (1 - \theta)}$$<p>Or, if we denote the ratio $\frac{\gamma_\text{success}}{\gamma_\text{failure}}$ as $r_\gamma$:</p>
+$$\frac{\theta}{\theta + \frac{1 - \theta}{r_\gamma}}$$<p>If this ratio is known to be 1 then this “transformed” probability of success is simply $\theta$. If, on the other hand, we intend to express “complete ignorance” of $r_\gamma$, and choose to do so by using Jeffreys’ prior for scale parameters (that is, the improper prior $p(r_\gamma) \propto \frac{1}{r_\gamma}$, or equivalently, a flat prior on $\log r_\gamma$), and then conduct inference with a <a href="https://www.pymc.io/">PyMC</a> program like the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pymc <span style="color:#66d9ef">as</span> pm
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> pm<span style="color:#f92672">.</span>Model() <span style="color:#66d9ef">as</span> model:
+</span></span><span style="display:flex;"><span>    log_rγ <span style="color:#f92672">=</span> pm<span style="color:#f92672">.</span>Flat(<span style="color:#e6db74">&#39;log_rγ&#39;</span>)
+</span></span><span style="display:flex;"><span>    rγ <span style="color:#f92672">=</span> pm<span style="color:#f92672">.</span>Deterministic(<span style="color:#e6db74">&#39;rγ&#39;</span>, pm<span style="color:#f92672">.</span>math<span style="color:#f92672">.</span>exp(log_rγ))
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    θ <span style="color:#f92672">=</span> pm<span style="color:#f92672">.</span>Beta(<span style="color:#e6db74">&#39;θ&#39;</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    biased_θ <span style="color:#f92672">=</span> pm<span style="color:#f92672">.</span>Deterministic(<span style="color:#e6db74">&#39;biased_θ&#39;</span>, θ <span style="color:#f92672">/</span> (θ <span style="color:#f92672">+</span> (<span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> θ) <span style="color:#f92672">/</span> rγ))
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    pm<span style="color:#f92672">.</span>Binomial(<span style="color:#e6db74">&#39;observed&#39;</span>, p<span style="color:#f92672">=</span>biased_θ, n<span style="color:#f92672">=</span><span style="color:#ae81ff">300</span>, observed<span style="color:#f92672">=</span><span style="color:#ae81ff">15</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    trace <span style="color:#f92672">=</span> pm<span style="color:#f92672">.</span>sample(<span style="color:#ae81ff">100_000</span>, nuts_sampler<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;numpyro&#39;</span>, cores<span style="color:#f92672">=</span><span style="color:#ae81ff">16</span>)
+</span></span></code></pre></div><p>We find that the posterior probability distribution for $\theta$ is the same as its prior. In other words, we have learned nothing about it, which makes sense.</p>
+<p>Having confirmed that the model seems to behave as expected in those extreme cases, we can experiment with intermediate cases. For example, let’s see what happens if we consider it 95% probable that $r_\gamma$ deviates from a “fair” ratio of 1 by up to 10% in either direction. We will express this by a Gaussian prior on $\log_{10}(r_\gamma)$ with mean 0 and standard deviation $\frac{\log_{10}(1.1)}{\sqrt 2 \operatorname{erf}^{-1}(0.95)} \simeq 0.0211191$.</p>
+<p>Here is what we get if we observe 15 successes out of 300 samples:</p>
+<figure>
+  <img src="sampling-bias-300.svg" alt="Posterior probability distribution for the biased and true proportions with 300 samples">
+</figure>
+<p>In this case, our estimate of the “true” $\theta$ (left) is roughly as uncertain as that with the bias (right).</p>
+<p>If we now observe 250 successes out of 5000 (still 5%):</p>
+<figure>
+  <img src="sampling-bias-5000.svg" alt="Posterior probability distribution for the biased and true proportions with 5000 samples">
+</figure>
+<p>Our estimate of the biased $\theta$ is becoming more and more certain, and our estimate of the true $\theta$ is still only slightly less so. But now, with 500 000 samples:</p>
+<figure>
+  <img src="sampling-bias-500000.svg" alt="Posterior probability distribution for the biased and true proportions with 500000 samples">
+</figure>
+<p>We begin to see that while we can be quite sure of the value of the biased proportion, our “true” estimate is starting to hit a ceiling – our 95% credible interval still leaves about 10% of relative uncertainty about the true value.</p>
+<p>It therefore seems that this is how uncertainty about the amount of sampling bias manifests itself.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This post was motivated by my impression that many people overestimate the importance of the size of the population in relation to the number of samples. I hope to have contributed to demystifying the question by showing what impact it actually has.</p>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/statistics/sleeping-beauty/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">Thoughts on the Sleeping Beauty Paradox</span>
+                <span class="prev-text nav-mobile">Prev</span>
+              </a>
+            
+              <a class="next" href="/post/statistics/population-level-differences/">
+                <span class="next-text nav-default">Population- vs. individual-level differences</span>
+                <span class="prev-text nav-mobile">Next</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+
+
+      
+      
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+    
+
+  
+
+  
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">Table of Contents</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#sampling-with-replacement-or-from-a-very-large-population">Sampling with replacement (or from a very large population)</a>
+      <ul>
+        <li><a href="#conjugate-priors">Conjugate priors</a></li>
+      </ul>
+    </li>
+    <li><a href="#sampling-without-replacement">Sampling without replacement</a></li>
+    <li><a href="#sampling-bias">Sampling bias</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+
+<a href="https://sami.boo/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+       -
+    2025
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        Sami
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.7.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.0cf2fc4911e5216d39fed0e657b91fa9d4a2ec70d54f87ceb192dbef8a2e2d51.js" integrity="sha256-DPL8SRHlIW05/tDmV7kfqdSi7HDVT4fOsZLb74ouLVE=" crossorigin="anonymous"></script>
+
+
+
+  <script src="https://polyfill-fastly.io/v3/polyfill.min.js?features=es6"></script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  },
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

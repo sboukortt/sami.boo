@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          What&#39;s Wrong with Bayesian Methods? - Sami
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="Sami" />
+  <meta name="description" content="Article by Edwin Thompson Jaynes, April 1984; original at: https://bayes.wustl.edu/etj/articles/bayesian.methods.pdf
+Introduction Our title is the title of a talk given in Cambridge on Feb. 3, 1984, by Professor G. A. Barnard. For him it was a question to be taken seriously, and answered seriously. But for us it is only a rhetorical question; for while we see many things in Bayesian methods that are still incomplete and in need of further technical development, we are unable to see anything basically wrong with them.
+" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.145.0" />
+
+
+<link rel="canonical" href="https://sami.boo/jaynes/whats-wrong-with-bayesian-methods/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.e826e860368147e5a6685e686355e4d7789023c18c9ea2e78b35f6786ce92736.css" integrity="sha256-6CboYDaBR&#43;WmaF5oY1Xk13iQI8GMnqLnizX2eGzpJzY=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:url" content="https://sami.boo/jaynes/whats-wrong-with-bayesian-methods/">
+  <meta property="og:site_name" content="Sami">
+  <meta property="og:title" content="What&#39;s Wrong with Bayesian Methods?">
+  <meta property="og:description" content="Article by Edwin Thompson Jaynes, April 1984; original at: https://bayes.wustl.edu/etj/articles/bayesian.methods.pdf
+Introduction Our title is the title of a talk given in Cambridge on Feb. 3, 1984, by Professor G. A. Barnard. For him it was a question to be taken seriously, and answered seriously. But for us it is only a rhetorical question; for while we see many things in Bayesian methods that are still incomplete and in need of further technical development, we are unable to see anything basically wrong with them.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="jaynes">
+    <meta property="article:published_time" content="2024-03-08T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-03-08T00:00:00+00:00">
+
+  <meta itemprop="name" content="What&#39;s Wrong with Bayesian Methods?">
+  <meta itemprop="description" content="Article by Edwin Thompson Jaynes, April 1984; original at: https://bayes.wustl.edu/etj/articles/bayesian.methods.pdf
+Introduction Our title is the title of a talk given in Cambridge on Feb. 3, 1984, by Professor G. A. Barnard. For him it was a question to be taken seriously, and answered seriously. But for us it is only a rhetorical question; for while we see many things in Bayesian methods that are still incomplete and in need of further technical development, we are unable to see anything basically wrong with them.">
+  <meta itemprop="datePublished" content="2024-03-08T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-03-08T00:00:00+00:00">
+  <meta itemprop="wordCount" content="3630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="What&#39;s Wrong with Bayesian Methods?">
+  <meta name="twitter:description" content="Article by Edwin Thompson Jaynes, April 1984; original at: https://bayes.wustl.edu/etj/articles/bayesian.methods.pdf
+Introduction Our title is the title of a talk given in Cambridge on Feb. 3, 1984, by Professor G. A. Barnard. For him it was a question to be taken seriously, and answered seriously. But for us it is only a rhetorical question; for while we see many things in Bayesian methods that are still incomplete and in need of further technical development, we are unable to see anything basically wrong with them.">
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Sami</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://sami.boo/">Home</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://sami.boo/post/">Articles</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          <div class="mobile-menu-parent">
+            <span class="mobile-submenu-open"></span>
+            <a href="https://sami.boo/panoramas/">
+              Panoramas
+            </a>
+          </div>
+          <ul class="mobile-submenu-list">
+            
+              <li>
+                <a href="https://sami.photo/pano/golzernsee/">Golzernsee</a>
+              </li>
+            
+              <li>
+                <a href="https://sami.photo/pano/premier-inn-old-street/">Premier Inn London City (Old Street)</a>
+              </li>
+            
+          </ul>
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://sami.photo/" rel="noopener" target="_blank">
+              Photos
+              
+              <i class="iconfont">
+                <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M623.36 272.96 473.216 423.04C467.2 429.056 467.072 438.656 472.896 444.416c0 0-6.72-6.656 1.6 1.6C496.064 467.648 528.64 500.224 528.64 500.224 534.464 506.048 544 505.856 550.016 499.904l150.08-150.144 67.328 66.432c9.024 8.96 27.456 4.544 30.4-8.96 19.968-92.608 46.656-227.52 46.656-227.52 6.848-34.496-16.192-56.704-49.92-49.92 0 0-134.656 26.816-227.328 46.784C560.32 178.048 556.352 182.272 554.752 187.136c-3.2 6.208-3.008 14.208 3.776 20.992L623.36 272.96z"></path>
+  <path d="M841.152 457.152c-30.528 0-54.784 24.512-54.784 54.656l0 274.752L237.696 786.56 237.696 237.696l206.016 0c6.656 0 10.752 0 13.248 0C487.68 237.696 512 213.184 512 182.848 512 152.32 487.36 128 456.96 128L183.04 128C153.216 128 128 152.576 128 182.848c0 3.136 0.256 6.272 0.768 9.28C128.256 195.136 128 198.272 128 201.408l0 639.488c0 0.064 0 0.192 0 0.256 0 0.128 0 0.192 0 0.32 0 30.528 24.512 54.784 54.784 54.784l646.976 0c6.592 0 9.728 0 11.712 0 28.736 0 52.928-22.976 54.464-51.968C896 843.264 896 842.304 896 841.344l0-20.352L896 561.408 896 512.128C896 481.792 871.424 457.152 841.152 457.152z"></path>
+</svg>
+
+              </i>
+            </a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+
+    
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      Sami
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://sami.boo/">Home</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://sami.boo/post/">Articles</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          <a class="menu-item-link menu-parent" href="https://sami.boo/panoramas/">Panoramas</a>
+          <ul class="submenu">
+            
+              <li class="submenu-item">
+                <a href="https://sami.photo/pano/golzernsee/">Golzernsee</a>
+              </li>
+            
+              <li class="submenu-item">
+                <a href="https://sami.photo/pano/premier-inn-old-street/">Premier Inn London City (Old Street)</a>
+              </li>
+            
+          </ul>
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://sami.photo/" rel="noopener" target="_blank">
+              Photos
+              
+              <i class="iconfont">
+                <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M623.36 272.96 473.216 423.04C467.2 429.056 467.072 438.656 472.896 444.416c0 0-6.72-6.656 1.6 1.6C496.064 467.648 528.64 500.224 528.64 500.224 534.464 506.048 544 505.856 550.016 499.904l150.08-150.144 67.328 66.432c9.024 8.96 27.456 4.544 30.4-8.96 19.968-92.608 46.656-227.52 46.656-227.52 6.848-34.496-16.192-56.704-49.92-49.92 0 0-134.656 26.816-227.328 46.784C560.32 178.048 556.352 182.272 554.752 187.136c-3.2 6.208-3.008 14.208 3.776 20.992L623.36 272.96z"></path>
+  <path d="M841.152 457.152c-30.528 0-54.784 24.512-54.784 54.656l0 274.752L237.696 786.56 237.696 237.696l206.016 0c6.656 0 10.752 0 13.248 0C487.68 237.696 512 213.184 512 182.848 512 152.32 487.36 128 456.96 128L183.04 128C153.216 128 128 152.576 128 182.848c0 3.136 0.256 6.272 0.768 9.28C128.256 195.136 128 198.272 128 201.408l0 639.488c0 0.064 0 0.192 0 0.256 0 0.128 0 0.192 0 0.32 0 30.528 24.512 54.784 54.784 54.784l646.976 0c6.592 0 9.728 0 11.712 0 28.736 0 52.928-22.976 54.464-51.968C896 843.264 896 842.304 896 841.344l0-20.352L896 561.408 896 512.128C896 481.792 871.424 457.152 841.152 457.152z"></path>
+</svg>
+
+              </i>
+            </a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">What&#39;s Wrong with Bayesian Methods?</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      Sami
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2024-03-08">
+      Friday  8 March 2024
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    
+
+    
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <p><em>Article by <strong>Edwin Thompson Jaynes, April 1984</strong>; original at: <a href="https://bayes.wustl.edu/etj/articles/bayesian.methods.pdf">https://bayes.wustl.edu/etj/articles/bayesian.methods.pdf</a></em></p>
+<h2 id="introduction">Introduction</h2>
+<p>Our title is the title of a talk given in Cambridge on Feb. 3, 1984, by Professor G. A. Barnard. For him it was a question to be taken seriously, and answered seriously. But for us it is only a rhetorical question; for while we see many things in Bayesian methods that are still incomplete and in need of further technical development, we are unable to see anything basically wrong with them.</p>
+<p>However, Barnard’s argument proved to be valuable, because it framed our differences in such a clear and sharp way. Thirty years ago Jimmie Savage remarked of statistics that “there has seldom been such complete disagreement and breakdown of communication since the Tower of Babel”. Pondering Barnard’s remarks we were able to see where our communication has failed, more clearly than before.</p>
+<p>For decades Bayesians have been accused of “supposing that an unknown parameter is a random variable”; and we have denied, hundreds of times and with increasing vehemence, that we are making any such assumption. We have been unable to comprehend why our denials have no effect, and that charge continues to be made.</p>
+<p>Sometimes, in our perplexity, it has seemed to us that there are two fundamentally different kinds of mentality in statistics; those who see the point of Bayesian inference at once, and need no explanation; and those who never see it, however much explanation is given. But Barnard’s remarks provided a clue to what has been causing this genuine Tower of Babel situation.</p>
+<p>Barnard defined the term “statistics” as follows: (A) It is not concerned with decision making; and it is not concerned with scientific inference in general. (B) Rather, statistics is “that part of inference where experiments are repeatable, their results only partially so”. (C) Any models we use must be verifiable – or at least criticizable – and the probabilities we use must be frequencies.</p>
+<p>He then complained that Bayesian methods of parameter estimation, which express the result as a posterior distribution, are illogical; for how could the distribution of a parameter possibly become known from data which were taken with only one value of the parameter actually present? Assignment of prior probabilities was dismissed as an “uncriticizable assumption about a chance distribution”.</p>
+<h2 id="the-bayesian-reaction">The Bayesian reaction</h2>
+<p>Let us note the instinctive first reaction that a Bayesian has to Barnard’s arguments. His definition of “Statistics” seems to cut it off from most of the problems where we had been led to believe that “Statistics” was the appropriate tool. For it is simply a fact of life that in most of the real problems faced by scientists, engineers, economists, and administrators:</p>
+<ol type="A">
+<li>we are concerned with decision making, and with inference in general.</li>
+<li>There is no repeatable experiment involved; the reason why inference is needed is not “random errors” but incomplete information.</li>
+<li>Officially, Bayesians do not know what it means to “verify” a model or “criticize” a prior probability, because our models and prior probabilities are only summaries of what we know about the phenomenon being observed, and about the possible values of the parameters. The evidence in support of them has already been taken into account when we propose them.</li>
+</ol>
+<p>Unofficially, of course, we may wish like anybody else to make a “trial run” experiment with some model or prior that does not represent actual knowledge, but only a whimsy, to see what happens. This might, for example, help us to decide whether it would be worth the effort to get a certain kind of prior information.</p>
+<p>Barnard’s subsequent complaint appears to us as an example of a semantic trap caused by habitual use of the phrase “distribution of the parameter” when one should have said “distribution of the probability”. Our communication problems arise in large part from the difficulty that orthodox terminology is not adapted to expressing Bayesian ideas (in this respect it reminds one of the Orwellian NEWSPEAK, a language within whose vocabulary and grammar it was not possible to express dissenting views).</p>
+<p>In Bayesian inference, both the prior and posterior distributions represent, not any measurable property of the parameter, but only our own state of knowledge about it. The width of the distribution indicates not the range of variability of the true values of the parameter, but rather the range of values that are consistent with (i.e. not ruled out by) our prior information and data. Honesty therefore compels us to admit them as possible values.</p>
+<p>What is “distributed” is not the parameter, but the probability. A terminology which always makes this clear is much needed. The phraseology “probability distribution function (pdf) for a parameter” is a step in the right direction, but perhaps we might find something more brief and explicit.</p>
+<p>Barnard’s argument is then absolutely mind-boggling to a Bayesian; for to try to “verify” a distribution which expresses only a state of knowledge about that parameter by performing random experiments on the parameter, is the logical equivalent of trying to verify a boy’s love for his dog by performing experiments on the dog. But just to have our differences appear in such acute form suggests a plausible – and at least to the writer, new and startling – hypothesis about where our communication has failed.</p>
+<p>Is it possible that, for all these years, those who have seemed immune to all Bayesian explanation have just been misunderstanding our purpose? All this time, we had thought it clear from our subject-matter context that we are trying to estimate the value that the parameter had <em>when the data were taken</em>. Put differently, we are trying to draw inferences about what actually did happen; not about what might have happened but did not.</p>
+<p>Nothing could be further from our purpose than to make statements about how our parameter might be “distributed” in other situations that we are not reasoning about. Indeed, our posterior distribution for a parameter is not necessarily a predictive distribution for values that it might have in future experiments; this depends on further details of our prior knowledge, that were not relevant in the problem we had addressed.</p>
+<p>But now it appears that our critics may have been trying to interpret our work in a different way, imposed on them by their habits of terminology, as an attempt to solve a very different problem. If so, our past communication difficulties would become understandable: the problem they impute to us has – as they correctly see – no solution from the information at hand. The fact that we nevertheless get a solution then seems miraculous to them, and we are accused of trying to get something for nothing.</p>
+<p>“Statistics” as defined by Barnard and “Scientific Inference” as defined by Jeffreys are concerned with different problems; and so, far from having reason to argue the merits of our different methods, we have no reason to compare them at all. We can restore peace in both fields simply by going our separate ways.</p>
+<p>Yet it is clear that neither George Barnard nor I wants to do this; for we both see that, in spite of the above, our different problems are closely related mathematically. Rising above past criticisms – which now appear to have been only misunderstandings of our purposes – Bayesians are in a position to help orthodox statistics in some of its most serious current difficulties. For the Bayesian procedure is flexible enough to apply to many different problems, including both those of Barnard and Jeffreys.</p>
+<h2 id="lets-not-confuse-two-different-problems">Let's not confuse two different problems</h2>
+<p>In the following it is essential that we understand clearly what the two problems are and which problem we are talking about.</p>
+<p>In the Jeffreys scenario we are <em>estimating</em>, from our prior information and data, the unknown constant value that the parameter had when the data were taken.</p>
+<p>In Barnard’s we are <em>deducing</em>, from prior knowledge of the frequency distribution of the parameter over some large class $C$ of repetitions of the whole experiment, the frequency distribution that it has in the subclass $C(D)$ of cases that yield the same data $D$. The problems are so different that one would expect them to be solved by different procedures.</p>
+<p>But Bayesian inference need not adhere constantly to the Jeffreys problem, for nothing prohibits us from estimating a frequency distribution instead of a fixed value, if that happens to be the thing of interest. But instead of saying that the probability <em>is</em> the frequency, we would calculate the probability that the frequency lies in various intervals, enabling us to make statements about the accuracy of the estimate.</p>
+<p>Likewise, orthodox statistics could in principle switch back and forth between the problems of deducing conditional frequency distribution of a parameter, depending on whether the parameter is or is not considered “random”. However, we are not sure that this switching has ever occurred, for we know of no real problem in which anyone has actually used Bayes’ theorem for the purpose that Barnard supposed.</p>
+<p>In the case where the parameter is considered to be a fixed constant, application of Bayes’ theorem for Barnard’s purpose would indeed be illogical; or rather idle, for its presupposes that we already know, in the singular prior, the frequency distribution of the parameter in every subclass $C(D)$, and so there is nothing more to be learned from the data.</p>
+<p>But we never know that singular frequency distribution in advance (if we did know it, we would not be considering the problem). Orthodox statistics then reverts necessarily to inference concerning a fixed value of the parameter rather than a distribution of values. Then the orthodoxian and Bayesian are trying to solve the same problem if neither has any prior information about the parameter; and it makes sense to argue our different philosophies and compare our different methods.</p>
+<h2 id="what-happens-if-we-consider-the-same-problem">What happens if we consider the same problem?</h2>
+<p>Since orthodoxy sees no meaning in a probability which is not also a frequency, it is obliged to seek other tools than probability theory. Lacking guiding theoretical principles, Neymannian orthodoxy is reduced to inventing <em>ad hoc</em> procedures like confidence intervals or significance tests based on some statistic chosen by intuition.</p>
+<p>Fisherian orthodoxy is in a better position because it recognizes that such inference is valid only when we are using sufficient statistics or conditioning on ancillary statistics. Thus it avoids the wild anomalies that can arise in Neymannian inference, some of which were noted by Barnard.</p>
+<p>For the Bayesian, who does see meaning in a probability that is not a frequency, all the needed theoretical principles are contained in the product and sum rules of probability theory. He views them, not merely as rules for calculating frequencies (which they are, but trivially); but also rules for conducting inference – a nontrivial property requiring mathematical demonstration. But that demonstration is a long since accomplished fact, as noted below, and the result is: those rules tell us to use Bayes’ theorem in the manner of Laplace and Jeffreys. So how do the pragmatic results compare?</p>
+<p>An early indication of things to come was the demonstration by Jeffreys (1939) that the orthodox t-test follows exactly from a few lines of Bayesian analysis, using the Jeffreys uninformative priors for the location and scale parameters. The same is easily shown to be true for the F-test and the orthodox test for the parameter of a Poisson distribution.</p>
+<p>Lindley (1958) then proved that if any problem is equivalent (to within a change of variables) to a location/scale parameter problem and has sufficient statistics so that fiducial inference is possible, then that fiducial distribution is identical with a Bayesian posterior distribution.</p>
+<p>Unfortunately, location/scale parameter problems do not in general have sufficient statistics; but they do have a complete set of ancillary statistics. The writer has shown (<a href="https://sami.boo/jaynes/confidence-intervals-vs-bayesian-intervals/">Jaynes, 1976</a>) that the “best” confidence interval for any location or scale parameter (i. e., the shortest one that meets Fisher’s requirement of conditioning on all ancillary statistics) is identical with the Bayesian posterior probability interval at the same level, based on the Jeffreys uninformative priors. The proof does not even require independent sampling.</p>
+<p>It appears to the writer that all of the procedures which the “orthodox” statistician himself considers fully satisfactory, follow trivially from the Bayesian approach with noninformative priors. If there are exceptions to this conjecture, it would be interesting to learn about them and study them.</p>
+<p>But many problems encounter technical difficulties (nuisance parameters, nonexistence of sufficient or ancillary statistics, flat-topped likelihood function, inability to use prior information) which have not been overcome by any satisfactory orthodox procedure. We find, when we apply Bayesian methods to such problems, that the difficulties are overcome effortlessly, yielding substantial improvements over orthodox results (Jaynes, 1976).</p>
+<p>Finally, Bayesian methods with the adjunct of Maximum Entropy – which can be thought of either as a factor in the prior or as a utility function – apply also to a mass of new problems that cannot be formulated at all in orthodox terms; and computers are now busy grinding out the useful solutions. They are performing very nontrivial data analysis in such diverse fields as spectrum estimation, medical instrumentation, underwater acoustics, radio astronomy, geophysics, optical image reconstruction, physical chemistry, crystallography, and what will probably become the largest area of application, biological macromolecular structure determination.</p>
+<p>Here in Cambridge, computers are now routinely locating constrained entropy maxima in spaces of over a million dimensions. The numerical results are so impressive that the methods are moving steadily into new areas, and major efforts are underway in many places, to develop still more powerful programs.</p>
+<p>In view of this, we are not surprised to find that criticisms of Bayesian and/or Maximum Entropy methods deplore only our philosophy, and stop short of examining our actual numerical results in real problems (which seems a pity, because we are proud of those results and think they would be easy to defend, although we could hardly compare them to nonexistent orthodox results).</p>
+<p>But our philosophy is very easy to defend also as soon as one recognizes our purposes as explained above; for it is not an opinion, but a theorem (Cox, 1946), that any set of rules for inference, in which we represent degrees of plausibility by real numbers, is necessarily either equivalent to the Laplace-Jeffreys rules, or inconsistent (in the sense that one could find two methods of calculation, each permitted by the rules, which yield different results).</p>
+<p>In the simpler problems of this type, orthodox intuition was powerful enough to invent <em>ad hockeries</em> that proved to be equivalent to Bayesian methods with uninformative priors.</p>
+<p>In technically more complicated problems where we obtain different results, orthodoxy does not usually formulate its rules completely enough, or apply them far enough, for the aforementioned kind of inconsistency to appear. But it is always lurking just beneath the surface, and sometimes does come into view. The statistical literature – not all Bayesian – contains many examples of the anomalous results that orthodox methods can give in particular cases.</p>
+<p>For example, confidence intervals not based on sufficient statistics and not conditioned on ancillary statistics lead to different conclusions from different choices of the statistic; even to grotesquely impossible conclusions, because they ignore cogent information in the sample, that Bayesian methods take into account automatically.</p>
+<p>On the other hand, whenever someone has claimed to exhibit an anomaly in Bayesian results, it has turned out that there was an error in the calculation or the Bayesian method was misapplied. Typically, the user has extra information, highly relevant for the inference, that he failed to take into account in the calculation. Venn’s polemical attack on Laplace’s Rule of Succession, answered by Fisher (1956), is perhaps the classic example.</p>
+<p>For Jeffreys’ problem of inferring a fixed value, then, it seems to us a long since demonstrated fact – on both the theoretical and pragmatic level – that the orthodox statistician has a great deal to gain in useful results (and as far as we can see, nothing to lose but his ideological chains) by joining the Bayesian camp and finally taking advantage of the powerful tool that Harold Jeffreys created and offered to him 45 years ago. Failing to do this, he faces rapid obsolescence as the new applications of Jeffreys’ principles pass far beyond his domain.</p>
+<h2 id="now-lets-consider-barnards-problem">Now let's consider Barnard's problem</h2>
+<p>But suppose we do want to infer a frequency distribution for a parameter according to Barnard’s scenario; how do our methods compare? The orthodoxian will then allow the use of Bayes’ theorem in principle, because he can interpret every probability in it as a frequency. The prior probability can stand only for a frequency in the large class $C$. But this is almost always unknown in the real problem, and so he can almost never use Bayes’ theorem in practice. We do not know of any case where Barnard’s scenario has actually been enacted.</p>
+<p>The orthodoxian also has a difficulty of principle. For, even if we did know the frequency distribution of the parameter on the large class $C$, we might not want to use it as a prior. Suppose we also happened to know something more, that did not involve frequencies, pertaining to the present experiment (for example, that because of special circumstances extreme values cannot occur). It appears to us that neither the orthodoxian’s ideology nor his procedures would permit him to use that additional information to improve his estimates. Indeed, we suspect that he would not wish to consider the problem at all, because in this particular experiment the parameter would be, in his view, “not randomly selected”.</p>
+<p>The difficulty applies equally well to the sampling distribution. Even if we knew the frequency distribution of samples for all values of the parameter, we might not want to use it as a sampling distribution. We might have knowledge of special circumstances that affect the possible values of data that can be observed in the present experiment (for example, that because of rotation of our spacecraft every third datum is subject to additional error not in the others, but we do not know which ones are thus affected). Surely, common sense will tell us that it would be wrong to analyze the problem as if we did not know this; yet what orthodox principles would determine, or even justify using, a procedure that takes this into account? To do so would be to admit, with Jeffreys, that in inference a probability stands for more than just a frequency.</p>
+<p>We do not contend that such difficulties will arise very often, but only want to point out that attempts to uphold frequency definitions of probability can lead to difficulties of principle whenever we have relevant information that does not consist of frequencies. Bayesian methods can take such information into account easily; such cases make the interesting homework problems for our students.</p>
+<p>In our view, orthodox principles could deal with Barnard’s scenario satisfactorily only when we have perfect knowledge of frequencies, and no other relevant information (i.e., just the case where Bayesian probabilities are equal to frequencies). That is, when we have the frequency information that the orthodoxian must have but the Bayesian can get along without, but lack the extra information that the Bayesian can use but the orthodoxian cannot. So again, as in the case of confidence intervals, the orthodoxian procedure will be satisfactory only when our information is such that the orthodox results agree with the Bayesian ones.</p>
+<p>In contrast, the Bayesian is prepared to consider this problem in far greater generality and depth, because he can take into account any prior information that can be expressed by a prior distribution, and for this he is prepared to go into deeper and deeper hypothesis spaces. If he lacks knowledge of the frequency distribution of the parameter $\beta$ in class $C$, he can still assign, perhaps by maximum entropy, a prior that represents whatever partial information he has. If he has additional information about $\beta$ beyond frequencies, he can take this into account equally well.</p>
+<p>Most important of all, the Bayesian has a technical flexibility in that he can solve Barnard’s problem, not on the parameter space $B$ consisting of the possible values of $\beta$, but on the extension space $B(n) = B \times B \times \cdots \times B$ comprising the jointly possible values $\begin{bmatrix} \beta_1 & \cdots & \beta_n \end{bmatrix}$ of $\beta$ in each of any number of repetitions of the experiment. On this space it is possible to express information about the variability and correlations of $\beta$ in different experiments – out to and including the limit of perfect correlation where he knows that $\beta$ is an unknown constant, and the results on $B(n)$ reduce to those of the previous elementary Bayesian analysis on $B$.</p>
+<p>By this means, we can transcend the crudity of supposing that the probability <em>is</em> the frequency, and develop the probability functional giving the relative probabilities of different frequency distributions, in the light of whatever information we have. In image reconstruction, physical chemistry, and geophysics we are now beginning to attack real problems where we have important prior information that can be expressed only on such an extension space.</p>
+<p>Failure to appreciate the work of Jeffreys has been very costly to the field of statistics for decades – nearly fatal as far as the ability to participate in new developments is concerned. The nonBayesian area is being left far behind, as the new applications are taken over instead by younger scientists, who would never dream of consulting a statistician for advice, because they understand and use Bayesian analysis as naturally as they use Fourier analysis.</p>
+<p>Of course, the field is open-ended, and many more technical advances will be needed in the future as problems become more sophisticated. Yet the Bayesian remedy for the elementary shortcomings of orthodoxy is already highly developed, and is available to anyone.</p>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/jaynes/confidence-intervals-vs-bayesian-intervals/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">Confidence Intervals vs Bayesian Intervals</span>
+                <span class="prev-text nav-mobile">Prev</span>
+              </a>
+            
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+
+
+      
+      
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+    
+
+  
+
+  
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">Table of Contents</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#the-bayesian-reaction">The Bayesian reaction</a></li>
+    <li><a href="#lets-not-confuse-two-different-problems">Let's not confuse two different problems</a></li>
+    <li><a href="#what-happens-if-we-consider-the-same-problem">What happens if we consider the same problem?</a></li>
+    <li><a href="#now-lets-consider-barnards-problem">Now let's consider Barnard's problem</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+
+<a href="https://sami.boo/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+       -
+    2025
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        Sami
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.7.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.0cf2fc4911e5216d39fed0e657b91fa9d4a2ec70d54f87ceb192dbef8a2e2d51.js" integrity="sha256-DPL8SRHlIW05/tDmV7kfqdSi7HDVT4fOsZLb74ouLVE=" crossorigin="anonymous"></script>
+
+
+
+  <script src="https://polyfill-fastly.io/v3/polyfill.min.js?features=es6"></script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  },
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

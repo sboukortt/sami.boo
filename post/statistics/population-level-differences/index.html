@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          Population- vs. individual-level differences - Sami
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="Sami" />
+  <meta name="description" content="Imagine that a correlation is found between a biomarker and the presence or absence of a disease. It is proposed that this be used for diagnosis. Can it always?
+(Betteridge’s law of headlines applies.)
+" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.145.0" />
+
+
+<link rel="canonical" href="https://sami.boo/post/statistics/population-level-differences/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.e826e860368147e5a6685e686355e4d7789023c18c9ea2e78b35f6786ce92736.css" integrity="sha256-6CboYDaBR&#43;WmaF5oY1Xk13iQI8GMnqLnizX2eGzpJzY=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:url" content="https://sami.boo/post/statistics/population-level-differences/">
+  <meta property="og:site_name" content="Sami">
+  <meta property="og:title" content="Population- vs. individual-level differences">
+  <meta property="og:description" content="Imagine that a correlation is found between a biomarker and the presence or absence of a disease. It is proposed that this be used for diagnosis. Can it always?
+(Betteridge’s law of headlines applies.)">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2024-03-09T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-03-09T00:00:00+00:00">
+
+  <meta itemprop="name" content="Population- vs. individual-level differences">
+  <meta itemprop="description" content="Imagine that a correlation is found between a biomarker and the presence or absence of a disease. It is proposed that this be used for diagnosis. Can it always?
+(Betteridge’s law of headlines applies.)">
+  <meta itemprop="datePublished" content="2024-03-09T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-03-09T00:00:00+00:00">
+  <meta itemprop="wordCount" content="2297">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Population- vs. individual-level differences">
+  <meta name="twitter:description" content="Imagine that a correlation is found between a biomarker and the presence or absence of a disease. It is proposed that this be used for diagnosis. Can it always?
+(Betteridge’s law of headlines applies.)">
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Sami</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://sami.boo/">Home</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://sami.boo/post/">Articles</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          <div class="mobile-menu-parent">
+            <span class="mobile-submenu-open"></span>
+            <a href="https://sami.boo/panoramas/">
+              Panoramas
+            </a>
+          </div>
+          <ul class="mobile-submenu-list">
+            
+              <li>
+                <a href="https://sami.photo/pano/golzernsee/">Golzernsee</a>
+              </li>
+            
+              <li>
+                <a href="https://sami.photo/pano/premier-inn-old-street/">Premier Inn London City (Old Street)</a>
+              </li>
+            
+          </ul>
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://sami.photo/" rel="noopener" target="_blank">
+              Photos
+              
+              <i class="iconfont">
+                <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M623.36 272.96 473.216 423.04C467.2 429.056 467.072 438.656 472.896 444.416c0 0-6.72-6.656 1.6 1.6C496.064 467.648 528.64 500.224 528.64 500.224 534.464 506.048 544 505.856 550.016 499.904l150.08-150.144 67.328 66.432c9.024 8.96 27.456 4.544 30.4-8.96 19.968-92.608 46.656-227.52 46.656-227.52 6.848-34.496-16.192-56.704-49.92-49.92 0 0-134.656 26.816-227.328 46.784C560.32 178.048 556.352 182.272 554.752 187.136c-3.2 6.208-3.008 14.208 3.776 20.992L623.36 272.96z"></path>
+  <path d="M841.152 457.152c-30.528 0-54.784 24.512-54.784 54.656l0 274.752L237.696 786.56 237.696 237.696l206.016 0c6.656 0 10.752 0 13.248 0C487.68 237.696 512 213.184 512 182.848 512 152.32 487.36 128 456.96 128L183.04 128C153.216 128 128 152.576 128 182.848c0 3.136 0.256 6.272 0.768 9.28C128.256 195.136 128 198.272 128 201.408l0 639.488c0 0.064 0 0.192 0 0.256 0 0.128 0 0.192 0 0.32 0 30.528 24.512 54.784 54.784 54.784l646.976 0c6.592 0 9.728 0 11.712 0 28.736 0 52.928-22.976 54.464-51.968C896 843.264 896 842.304 896 841.344l0-20.352L896 561.408 896 512.128C896 481.792 871.424 457.152 841.152 457.152z"></path>
+</svg>
+
+              </i>
+            </a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+
+    
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      Sami
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://sami.boo/">Home</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://sami.boo/post/">Articles</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          <a class="menu-item-link menu-parent" href="https://sami.boo/panoramas/">Panoramas</a>
+          <ul class="submenu">
+            
+              <li class="submenu-item">
+                <a href="https://sami.photo/pano/golzernsee/">Golzernsee</a>
+              </li>
+            
+              <li class="submenu-item">
+                <a href="https://sami.photo/pano/premier-inn-old-street/">Premier Inn London City (Old Street)</a>
+              </li>
+            
+          </ul>
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://sami.photo/" rel="noopener" target="_blank">
+              Photos
+              
+              <i class="iconfont">
+                <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M623.36 272.96 473.216 423.04C467.2 429.056 467.072 438.656 472.896 444.416c0 0-6.72-6.656 1.6 1.6C496.064 467.648 528.64 500.224 528.64 500.224 534.464 506.048 544 505.856 550.016 499.904l150.08-150.144 67.328 66.432c9.024 8.96 27.456 4.544 30.4-8.96 19.968-92.608 46.656-227.52 46.656-227.52 6.848-34.496-16.192-56.704-49.92-49.92 0 0-134.656 26.816-227.328 46.784C560.32 178.048 556.352 182.272 554.752 187.136c-3.2 6.208-3.008 14.208 3.776 20.992L623.36 272.96z"></path>
+  <path d="M841.152 457.152c-30.528 0-54.784 24.512-54.784 54.656l0 274.752L237.696 786.56 237.696 237.696l206.016 0c6.656 0 10.752 0 13.248 0C487.68 237.696 512 213.184 512 182.848 512 152.32 487.36 128 456.96 128L183.04 128C153.216 128 128 152.576 128 182.848c0 3.136 0.256 6.272 0.768 9.28C128.256 195.136 128 198.272 128 201.408l0 639.488c0 0.064 0 0.192 0 0.256 0 0.128 0 0.192 0 0.32 0 30.528 24.512 54.784 54.784 54.784l646.976 0c6.592 0 9.728 0 11.712 0 28.736 0 52.928-22.976 54.464-51.968C896 843.264 896 842.304 896 841.344l0-20.352L896 561.408 896 512.128C896 481.792 871.424 457.152 841.152 457.152z"></path>
+</svg>
+
+              </i>
+            </a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">Population- vs. individual-level differences</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      Sami
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2024-03-09">
+      Saturday  9 March 2024
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    
+
+    
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <p>Imagine that a correlation is found between a biomarker and the presence or absence of a disease. It is proposed that this be used for diagnosis. Can it always?</p>
+<p>(Betteridge’s law of headlines applies.)</p>
+<h2 id="an-artificial-idealised-example">An artificial, idealised example</h2>
+<p>Let’s consider the following two Cauchy distributions:</p>
+<figure>
+  <img src="distributions.svg" alt="Plot of two Cauchy distributions with distinct peaks but nevertheless extensive overlap">
+</figure>
+<p>It’s clearly possible to detect a difference between their respective peaks (each one’s <em>location parameter</em>). If we draw 10 000 samples from each, we find that the likely difference is this:</p>
+<figure>
+  <img src="location-difference.svg" alt="Plot of the posterior probability distribution of the difference between the location parameters of the previous two Cauchy distributions, showing the inferred difference to be sharply clustered around 1">
+</figure>
+<p>In other words, we can be quite sure that the difference is approximately one. (And I know this to be correct because this is how the two distributions were constructed.)</p>
+<p>Those two distributions could be those of our biomarker of interest, in those with and without the disease respectively. We would therefore be able to detect that the two populations have different central tendencies.</p>
+<h3 id="the-problem">The problem</h3>
+<p>In screening and diagnosing, however, we are faced with a different problem: having one sample at our disposal, which population did it come from? Those with the disease, or those without it?</p>
+<p>The ingredients we need for this are an <em>a priori</em> probability of which distribution the sample is from (for example based on the disease’s prevalence, the patient’s symptoms, other tests…), as well as the ratio of how much more likely such a sample is under one of the distributions than under the other (the “likelihood ratio”). The recipe, then, is Bayes’ theorem: in odds form, the posterior odds that the sample belongs to the diseased population (that our patient has the disease) are the prior odds multiplied by the likelihood ratio.</p>
+<p>You might have noticed the issue: the overlap between the two distributions is such that all samples are about as probable under either of them! The prior odds therefore can’t be nudged by much, or said differently, our measurement can’t give us a lot of information as to whether the patient has the disease or not. In this example, the greatest discriminatory power is if the sample happens to be either 117.5 or 127.5, in which case the likelihood ratio in favour of the distribution on the corresponding side will be about 1.22. Such a likelihood ratio would take a prior probability of 50% to roughly 55%; a prior of 90%, to 91.7%; or a prior of 10%, to 11.9%.</p>
+<h3 id="tangent-what-if-the-distributions-parameters-are-not-known-exactly">Tangent: what if the distribution's parameters are not known exactly?</h3>
+<p>(This section is not essential to the rest of the post and can be <a href="#real-example">skipped</a> if you don’t care.)</p>
+<p>As we have said, given the set $\theta$ of parameters for the two distributions, we have:</p>
+\begin{equation*}
+  \overbrace{O(\text{disease} \mid \text{data}, \theta)}^\text{posterior odds} = \overbrace{\frac{p(\text{data} \mid \text{disease}, \theta)}{p(\text{data} \mid \neg \text{disease}, \theta)}}^\text{likelihood ratio} \cdot \overbrace{O(\text{disease} \mid \theta)}^\text{prior odds}
+\end{equation*}<p>If $\theta$ is not known exactly (say, we don’t have enough samples from patients of known status), in the Bayesian approach that we are using, we can treat it as a so-called <em>nuisance parameter</em> (a parameter that plays a role in inference but is not part of what we are directly interested in), and <em>marginalise</em> it away.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> Conceptually, what we would do is:</p>
+\begin{align*}
+  p(\text{disease} \mid \text{data}) & = \int p(\text{disease}, \theta \mid \text{data})\,\mathrm d\theta \\
+  & = \int p(\text{disease} \mid \theta, \text{data}) \cdot p(\theta \mid \text{data})\,\mathrm d\theta
+\end{align*}<p>In MCMC sampling, we can obtain the marginal posterior $p(\text{disease} \mid \text{data})$ by sampling from the joint distribution $p(\text{disease}, \theta \mid \text{data})$ and just discarding $\theta$ from the samples.<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></p>
+<p>Alternatively, one could apply the exact Bayes formula to the samples for $\theta$ and thereby obtain a probability distribution for the result.</p>
+<h2 id="real-example">Real example</h2>
+<p>Let’s say that what we have now is not two Cauchy distributions and 10 000 samples from each, but two unknown distributions and the following samples from people known to have and not to have the disease of interest:<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup></p>
+<figure>
+  <img src="disease-data.svg" alt="Scatter plot of the biomarker of interest in people with and without the disease, showing substantial overlap">
+</figure>
+<p>We also know that 10% of the general population has the disease.</p>
+<p>We then take a measurement from a patient of unknown status and get 8.3. What does that mean?</p>
+<h3 id="roc-curve">ROC curve</h3>
+<p>We could approach this again by assuming that the two populations can be described by parametric distributions and run a joint inference of their parameters and of the disease status. But let’s put that aside – do we really expect that to be what will be done in practice? – and turn our attention to what will more likely happen: a threshold will be decided once and for all, above which the test is “negative” (no disease), and below which it is “positive” (the disease is thought to be present). <em>If</em> we are lucky, the outcome of that binary test will be interpreted probabilistically, but I wouldn’t bank on even that.<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup></p>
+<p>The process of deciding what the threshold should be typically starts by constructing a so-called “ROC curve” (Receiver Operating Characteristic), which is a curve in which each point shows the sensitivity and specificity<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup><sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup> of the test if it were to be performed at a given threshold.</p>
+<p>For our data, it looks like this:</p>
+<figure>
+  <img src="roc-curve.svg" alt="ROC curve for the data given above">
+</figure>
+<p>(Note that the curve itself doesn’t show what threshold corresponds to each point.)</p>
+<h3 id="deriving-a-threshold">Deriving a threshold</h3>
+<p>Having constructed our ROC curve, it becomes apparent that there isn’t one point that maximises all dimensions at once; we will have to balance some of them against the others. There are several ways that we could go about this, and here are a few.</p>
+<h4 id="overall-accuracy">Overall accuracy</h4>
+<p>We might want to use a threshold that maximises the overall “accuracy”, that is, $P(\text{disease}) \times \text{sensitivity} + P(\neg \text{disease}) \times \text{specificity}$. This will depend on $P(\text{disease})$, i.e. the prior probability of disease (or “prevalence” in frequentist terms) that we are considering, so we might want different thresholds for different population, for example screening in the general population vs. assessing a patient with symptoms.</p>
+<p>If we are applying the test to a population in which 10% can be expected to have the disease, remember that we can achieve 90% accuracy simply by saying “no” all the time. As it turns out, the threshold that maximises accuracy in this situation (7.93) doesn’t perform much better: it achieves an accuracy of about 90.84%, by correctly detecting 100% of the healthy people (90%) and about 8.4% of those with the disease (10%). We can indeed verify that $100\% \times 90\% + 8.4\% \times 10\% \simeq 90.84\%$. We would expect the majority of its positive results to be true positives (and we could thus say that we learn enormously from a positive result, since it greatly increases the probability of disease), and about 90.76% of its negative results to be true negatives (this is not much different from the prior probability of 90% of not having the disease, so we don’t learn much from negative results, which are the majority).</p>
+<p>If we wish to maximise accuracy in the situation where 40% of those taking the test are expected to have the disease, we find that it’s achieved by a different threshold: 8.44. The test then has a sensitivity of ~51% and a specificity of 80%, leading to an overall accuracy of about 69%. Approximately 63% of its positives will be correct (37% of the positive results will be false alarms), as will 71% of its negatives.</p>
+<p>Maximising the overall accuracy can be seen as minimising overall cost in the special case where false positives and false negatives are considered to have equal cost. It would be possible to carry out the minimisation with different weights as well.</p>
+<h4 id="guaranteed-amount-of-evidence">Guaranteed amount of evidence</h4>
+<p>Recall the odds form of Bayes’ theorem, in which the prior odds (right) are multiplied by the likelihood ratio (middle) to give the posterior odds (left):</p>
+\begin{equation*}
+  O(\text{disease} \mid \text{data}) = \frac{p(\text{data} \mid \text{disease})}{p(\text{data} \mid \neg \text{disease})} \cdot O(\text{disease})
+\end{equation*}<p>The likelihood ratio in case of a positive result (usually referred to as the “positive likelihood ratio”, or $LR^+$) is: $\frac{\text{sensitivity}}{1 - \text{specificity}}$</p>
+<p>In case of a negative result (“negative likelihood ratio”, $LR^-$), it’s: $\frac{1 - \text{sensitivity}}{\text{specificity}}$.</p>
+<p>Jaynes<sup id="fnref:8"><a href="#fn:8" class="footnote-ref" role="doc-noteref">8</a></sup> suggested taking the logarithm in order to express those in decibels, and calling the result “evidence”:</p>
+\begin{equation*}
+  e(\text{disease} \mid \text{data}) = 10 \cdot \log_{10}\left(O(\text{disease} \mid \text{data})\right)
+\end{equation*}<p>Odds of 1:1 (50% probability) would therefore correspond to 0 dB of evidence; odds of 10:1 (91% probability), to 10 dB of evidence; and odds of 1:10 (9% probability), to -10 dB.</p>
+<p>Bayes’ theorem then becomes:</p>
+\begin{equation*}
+  e(\text{disease} \mid \text{data}) = e(\text{disease}) + \underbrace{10 \cdot \log_{10}\left(\frac{p(\text{data} \mid \text{disease})}{p(\text{data} \mid \neg \text{disease})}\right)}_{\substack{\text{additional evidence} \\ \text{provided by the data}}}
+\end{equation*}<p>We might then wish to maximise the minimum amount of evidence (in absolute value) returned by the test, whether it turns out positive or negative.<sup id="fnref:9"><a href="#fn:9" class="footnote-ref" role="doc-noteref">9</a></sup> (This would be unlike the situation above with the very low threshold making most tests negative and uninformative, and a rare few of them positive and very informative.)</p>
+<p>This can be shown to be equivalent to making the amount of evidence equal in either case, which in turn is equivalent to making the sensitivity and specificity equal. With our data, the threshold that achieves this is 8.6, putting both sensitivity and specificity at 65%. Interestingly, because sensitivity and specificity are equal, the accuracy is also equal to them regardless of prevalence. The test then provides 2.7 dB of evidence in favour of the result (positive or negative), which corresponds to taking a 10% prior probability to either 17.1% (if positive) or 5.6% (if negative), or a 50% prior probability to either 65% or 35%.</p>
+<h4 id="youdens-j-statistic">Youden's J statistic</h4>
+<p>Also called Youden’s index, it was suggested by W. J. Youden in 1950<sup id="fnref:10"><a href="#fn:10" class="footnote-ref" role="doc-noteref">10</a></sup> as a means to evaluate the performance of binary tests. It is calculated simply as $\text{sensitivity} + \text{specificity} - 1$ and therefore ranges from 0 for a test that is positive exactly as often in people with and without the disease, to 1 for a perfect test that identifies everyone accurately. (A test that’s positive more often in those <em>without</em> the disease would have a negative index but can simply be flipped around.)</p>
+<p>In our case, that index is found to be maximised by a threshold of 8.5, yielding a sensitivity of 59% and a specificity of 74% (and therefore an index of 0.33).</p>
+<p>The performance is still not great: a positive result (measurement ≤ 8.5) would turn a 10% probability of disease into a 20% probability, and a negative result would take it to 5.8%.</p>
+<h3 id="applying-the-thresholds">Applying the thresholds</h3>
+<p>We have found a few thresholds that we could use for our test. How does each of them fare for our measurement of 8.3 in the screening situation where the prior probability of disease is 10%?</p>
+<ul>
+<li>
+<p>Optimising for accuracy with a 10% prior gave a threshold of 7.93. With this threshold, our 8.3 would be considered negative, and there would be a 90.76% chance that this is correct, or a 9.24% chance that we are missing a case. (Pretty much the same as not doing the test.) It would detect slightly less than one case for each 100 people screened, with few false positives.</p>
+</li>
+<li>
+<p>Optimising for accuracy with a 40% prior yielded a threshold of 8.44. With such a threshold, 8.3 would be positive, and there would be a 22.2% chance that this is correct (78% chance of false alarm).</p>
+</li>
+<li>
+<p>Our “guaranteed amount of evidence” approach gave a similar threshold of 8.6, and it’s therefore not very surprising that it performs similarly: 8.3 would be positive and there would be a 17.1% chance that this is correct.</p>
+</li>
+<li>
+<p>Likewise, the threshold that maximised Youden’s J statistic was 8.5, with which 8.3 would be positive and 20% likely to be a true positive.</p>
+</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>As I hope this post has shown, the task of turning a measure into a test is fraught with difficulties. The mere ability to detect a difference in a given measure between those with and without a disease does not guarantee the ability to turn said measure into a useful test that can reliably distinguish between the two.</p>
+<p>One approach not explored here (maybe in a future post?) is that of weighted logistic regression, but it would likely have the same problem as the parametric distribution approach with regard to being used in actual practice, and I don’t expect that it would perform that much better anyway. Still, it could be fun.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="https://towardsdatascience.com/probability-concepts-explained-marginalisation-2296846344fc">“Probability concepts explained: Marginalisation”</a>, by Jonny Brooks-Bartlett (2018)&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://www.nature.com/articles/nbt0904-1177">“What is Bayesian statistics?”</a>, by Sean R Eddy (2004). DOI: 10.1038/nbt0904-1177&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="https://arxiv.org/abs/1202.3665">“emcee: The MCMC Hammer”</a>, by Daniel Foreman-Mackey, David W. Hogg, Dustin Lang and Jonathan Goodman (2012). DOI: 10.48550/arXiv.1202.3665&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>Data from <a href="https://www.nature.com/articles/s41467-023-43125-1">“Choroidal and retinal thinning in chronic kidney disease independently associate with eGFR decline and are modifiable with treatment”</a>, by Farrah, T.E., Pugh, D., Chapman, F.A. <em>et al.</em> (2023), <a href="https://www.nature.com/articles/s41467-023-43125-1/figures/2">figure 2B</a>. DOI: 10.1038/s41467-023-43125-1&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3693708/">“Statistical Illiteracy in Residents: What They Do Not Learn Today Will Hurt Their Patients Tomorrow”</a>, by Odette Wegwarth (2013). DOI: 10.4300/JGME-D-13-00084.1&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6">
+<p>Sensitivity = if truly positive, probability of being detected as such; specificity = if truly negative, probability of being detected as such.&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7">
+<p>The sensitivity of a test is sometimes called its “true positive rate”, but I find that term horrifyingly misleading, as it could be misinterpreted as the “rate of positives that are true” (which would be the positive predictive value), whereas it’s actually the “rate of positives among those who should be”, i.e. the <a href="https://en.wikipedia.org/wiki/Confusion_of_the_inverse">transposed conditional</a>. Likewise, $1 - \text{specificity}$ would be called the “false positive rate” (ugh). It is possible for a test to have a “false positive rate” of 1% and yet for the vast majority of its positives to be false positives, if the test is performed mainly on true negatives, as is often the case with screening.&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:8">
+<p><a href="https://www.cambridge.org/core/books/probability-theory/9CA08E224FF30123304E6D8935CF1A99#fndtn-information">“Probability Theory: The Logic of Science”</a>, by Edwin Thompson Jaynes (2003), pp. 92-96. DOI: 10.1017/CBO9780511790423&#160;<a href="#fnref:8" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:9">
+<p>I don’t have a good principled justification for this approach but I thought it would be intriguing to explore it anyway.&#160;<a href="#fnref:9" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:10">
+<p><a href="https://acsjournals.onlinelibrary.wiley.com/doi/epdf/10.1002/1097-0142%281950%293%3A1%3C32%3A%3AAID-CNCR2820030106%3E3.0.CO%3B2-3">“Index for rating diagnostic tests”</a>, by W. J. Youden (1950). DOI: <a href="https://doi.org/10.1002/1097-0142(1950)3:1%3C32::AID-CNCR2820030106%3E3.0.CO;2-3">10.1002/1097-0142(1950)3:1&lt;32::AID-CNCR2820030106&gt;3.0.CO;2-3</a>&#160;<a href="#fnref:10" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/statistics/representative-sample/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">How much is a representative sample?</span>
+                <span class="prev-text nav-mobile">Prev</span>
+              </a>
+            
+              <a class="next" href="/post/statistics/jaynes/">
+                <span class="next-text nav-default">Articles by Edwin Thompson Jaynes</span>
+                <span class="prev-text nav-mobile">Next</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+
+
+      
+      
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+    
+
+  
+
+  
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">Table of Contents</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#an-artificial-idealised-example">An artificial, idealised example</a>
+      <ul>
+        <li><a href="#the-problem">The problem</a></li>
+        <li><a href="#tangent-what-if-the-distributions-parameters-are-not-known-exactly">Tangent: what if the distribution's parameters are not known exactly?</a></li>
+      </ul>
+    </li>
+    <li><a href="#real-example">Real example</a>
+      <ul>
+        <li><a href="#roc-curve">ROC curve</a></li>
+        <li><a href="#deriving-a-threshold">Deriving a threshold</a></li>
+        <li><a href="#applying-the-thresholds">Applying the thresholds</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+
+<a href="https://sami.boo/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+       -
+    2025
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        Sami
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.7.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.0cf2fc4911e5216d39fed0e657b91fa9d4a2ec70d54f87ceb192dbef8a2e2d51.js" integrity="sha256-DPL8SRHlIW05/tDmV7kfqdSi7HDVT4fOsZLb74ouLVE=" crossorigin="anonymous"></script>
+
+
+
+  <script src="https://polyfill-fastly.io/v3/polyfill.min.js?features=es6"></script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  },
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

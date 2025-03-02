@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          P-Values - Sami
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="Sami" />
+  <meta name="description" content="After our recent exploration of the pitfalls of confidence intervals, how about a little foray into the world of P-values?" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.145.0" />
+
+
+<link rel="canonical" href="https://sami.boo/post/statistics/p-values/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.e826e860368147e5a6685e686355e4d7789023c18c9ea2e78b35f6786ce92736.css" integrity="sha256-6CboYDaBR&#43;WmaF5oY1Xk13iQI8GMnqLnizX2eGzpJzY=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:url" content="https://sami.boo/post/statistics/p-values/">
+  <meta property="og:site_name" content="Sami">
+  <meta property="og:title" content="P-Values">
+  <meta property="og:description" content="After our recent exploration of the pitfalls of confidence intervals, how about a little foray into the world of P-values?">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2024-01-31T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-01-31T00:00:00+00:00">
+
+  <meta itemprop="name" content="P-Values">
+  <meta itemprop="description" content="After our recent exploration of the pitfalls of confidence intervals, how about a little foray into the world of P-values?">
+  <meta itemprop="datePublished" content="2024-01-31T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-01-31T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1800">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="P-Values">
+  <meta name="twitter:description" content="After our recent exploration of the pitfalls of confidence intervals, how about a little foray into the world of P-values?">
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Sami</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://sami.boo/">Home</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://sami.boo/post/">Articles</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          <div class="mobile-menu-parent">
+            <span class="mobile-submenu-open"></span>
+            <a href="https://sami.boo/panoramas/">
+              Panoramas
+            </a>
+          </div>
+          <ul class="mobile-submenu-list">
+            
+              <li>
+                <a href="https://sami.photo/pano/golzernsee/">Golzernsee</a>
+              </li>
+            
+              <li>
+                <a href="https://sami.photo/pano/premier-inn-old-street/">Premier Inn London City (Old Street)</a>
+              </li>
+            
+          </ul>
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://sami.photo/" rel="noopener" target="_blank">
+              Photos
+              
+              <i class="iconfont">
+                <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M623.36 272.96 473.216 423.04C467.2 429.056 467.072 438.656 472.896 444.416c0 0-6.72-6.656 1.6 1.6C496.064 467.648 528.64 500.224 528.64 500.224 534.464 506.048 544 505.856 550.016 499.904l150.08-150.144 67.328 66.432c9.024 8.96 27.456 4.544 30.4-8.96 19.968-92.608 46.656-227.52 46.656-227.52 6.848-34.496-16.192-56.704-49.92-49.92 0 0-134.656 26.816-227.328 46.784C560.32 178.048 556.352 182.272 554.752 187.136c-3.2 6.208-3.008 14.208 3.776 20.992L623.36 272.96z"></path>
+  <path d="M841.152 457.152c-30.528 0-54.784 24.512-54.784 54.656l0 274.752L237.696 786.56 237.696 237.696l206.016 0c6.656 0 10.752 0 13.248 0C487.68 237.696 512 213.184 512 182.848 512 152.32 487.36 128 456.96 128L183.04 128C153.216 128 128 152.576 128 182.848c0 3.136 0.256 6.272 0.768 9.28C128.256 195.136 128 198.272 128 201.408l0 639.488c0 0.064 0 0.192 0 0.256 0 0.128 0 0.192 0 0.32 0 30.528 24.512 54.784 54.784 54.784l646.976 0c6.592 0 9.728 0 11.712 0 28.736 0 52.928-22.976 54.464-51.968C896 843.264 896 842.304 896 841.344l0-20.352L896 561.408 896 512.128C896 481.792 871.424 457.152 841.152 457.152z"></path>
+</svg>
+
+              </i>
+            </a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+
+    
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      Sami
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://sami.boo/">Home</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://sami.boo/post/">Articles</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          <a class="menu-item-link menu-parent" href="https://sami.boo/panoramas/">Panoramas</a>
+          <ul class="submenu">
+            
+              <li class="submenu-item">
+                <a href="https://sami.photo/pano/golzernsee/">Golzernsee</a>
+              </li>
+            
+              <li class="submenu-item">
+                <a href="https://sami.photo/pano/premier-inn-old-street/">Premier Inn London City (Old Street)</a>
+              </li>
+            
+          </ul>
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://sami.photo/" rel="noopener" target="_blank">
+              Photos
+              
+              <i class="iconfont">
+                <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M623.36 272.96 473.216 423.04C467.2 429.056 467.072 438.656 472.896 444.416c0 0-6.72-6.656 1.6 1.6C496.064 467.648 528.64 500.224 528.64 500.224 534.464 506.048 544 505.856 550.016 499.904l150.08-150.144 67.328 66.432c9.024 8.96 27.456 4.544 30.4-8.96 19.968-92.608 46.656-227.52 46.656-227.52 6.848-34.496-16.192-56.704-49.92-49.92 0 0-134.656 26.816-227.328 46.784C560.32 178.048 556.352 182.272 554.752 187.136c-3.2 6.208-3.008 14.208 3.776 20.992L623.36 272.96z"></path>
+  <path d="M841.152 457.152c-30.528 0-54.784 24.512-54.784 54.656l0 274.752L237.696 786.56 237.696 237.696l206.016 0c6.656 0 10.752 0 13.248 0C487.68 237.696 512 213.184 512 182.848 512 152.32 487.36 128 456.96 128L183.04 128C153.216 128 128 152.576 128 182.848c0 3.136 0.256 6.272 0.768 9.28C128.256 195.136 128 198.272 128 201.408l0 639.488c0 0.064 0 0.192 0 0.256 0 0.128 0 0.192 0 0.32 0 30.528 24.512 54.784 54.784 54.784l646.976 0c6.592 0 9.728 0 11.712 0 28.736 0 52.928-22.976 54.464-51.968C896 843.264 896 842.304 896 841.344l0-20.352L896 561.408 896 512.128C896 481.792 871.424 457.152 841.152 457.152z"></path>
+</svg>
+
+              </i>
+            </a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">P-Values</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      Sami
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2024-01-31">
+      Wednesday 31 January 2024
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    
+
+    
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <p>After our recent exploration of the pitfalls of <a href="https://sami.boo/post/statistics/confidence-intervals/">confidence intervals</a>, how about a little foray into the world of P-values?</p>
+<p>(Note: the term is variably typeset with or without a hyphen, with the P capitalised or not, and in italics or straight.)</p>
+<h2 id="introduction-frequentism-and-bayesianism">Introduction: frequentism and Bayesianism</h2>
+<p>P-values, like confidence intervals, are a frequentist concept. Frequentism is one of two major schools of thoughts in statistics, the other being Bayesianism (named after Thomas Bayes). Whereas Bayesians use probability distributions to quantify uncertainty in general (and update them using Bayes’ theorem as new information comes to light), frequentists restrict probability to specifically mean relative frequencies in infinite repetitions of a “trial” where nevertheless some quantities of interest can vary from one repetition to the next. Those quantities are called “random”.</p>
+<p>So, for example, while a Bayesian would have no issue with assigning a probability (conditional on the information at hand) of 50% to the possibility that flipping an unfamiliar coin would turn up “heads”, a frequentist would only feel justified in doing so if it could be assumed that in infinitely many flips, the coin would come up “heads” 50% of the time.</p>
+<p>Note that the Bayesian’s assignment of 50% to the outcome of the flip is <em>not</em> a statement about that long-run frequency. The Bayesian could very well discuss this relative frequency but would treat <em>it</em> as an uncertain quantity, subject to its own probability distribution, itself subject to change as new information is obtained (for example by flipping the coin ten times). A probability of 50% for the outcome of a single flip can be the result not only of being sure that the relative frequency is 50%, but <em>also</em> of assigning equal probability to all possible relative frequencies between 0% and 100%, or assigning 50% probability to the possibility that the coin is biased to always come up “heads” and 50% probability to the possibility that it is biased the other way.</p>
+<p>Frequentists’ contention with Bayesian methods is not with Bayes’ theorem itself (as long as it’s applied to frequencies), but with epistemic probability and with the requirement to be able to assign a probability distribution to uncertain quantities before any data is available (a so-called <em>prior probability distribution</em>), which they believe makes such use of probability “subjective”.</p>
+<p>Note: there are several subphilosophies among frequentists. Ronald A. Fisher, who popularised the P-value, and Jerzy Neyman, inventor of the confidence interval, rarely saw eye-to-eye, and various disputes between the two of them can be found in the literature.</p>
+<p>With that out of the way, let’s focus on P-values specifically.</p>
+<h2 id="what-is-a-p-value">What is a P-value?</h2>
+<p>Having obtained some data in a random trial, a P-value is the relative frequency at which, if we repeated the trial infinitely many times, we would obtain data more “extreme” according to a statistic of our choice, under the assumption that our null hypothesis is true. But what does that actually mean?</p>
+<p>Imagine that we have a coin, and that each trial consists in flipping it ten times. Our model is that each flip has a constant probability $\theta$ of being “heads”, our null hypothesis “$H_0$” is that the coin is fair ($\theta = 0.5$), and we happen to get 9 “heads”. What is the P-value?</p>
+<p>A result at least as “extreme” as getting 9 heads out of 10 flips would be either:</p>
+<ul>
+<li>getting 9 or 10 heads if performing a so-called “<a href="https://en.wikipedia.org/wiki/One-_and_two-tailed_tests">one-tailed test</a>”, or</li>
+<li>getting 0, 1, 9 or 10 heads in the case of a two-tailed test.</li>
+</ul>
+<p>Since the probability of getting “heads” in a single flip is $\theta$, the number of “heads” in 10 flips follows the binomial distribution $B(10, \theta)$. The probability of getting exactly $k$ “heads” (in any order) in 10 flips is therefore ${10 \choose k} \cdot \theta^k \cdot (1 - \theta)^{10 - k}$. Under our null hypothesis that $\theta = 0.5$, it looks like this:</p>
+<figure>
+  <img src="10-fair-flips.svg" alt="Bar plot showing that the probability mass function for the number of “heads” in 10 fair coin flips is heavy around 5; less so near 0 and 10">
+</figure>
+<p>And the probability of getting a result at least as “extreme” as 9 heads in the one-tailed case is thus:</p>
+\begin{align*}
+  p & = P(9\text{ heads} | \theta=0.5) + P(10\text{ heads} | \theta=0.5) \\
+    & \approx 0.0107
+\end{align*}<p>In the two-tailed case:</p>
+\begin{align*}
+  p & = P(\text{0, 1, 9 or 10 heads} | \theta=0.5) \\
+    & \approx 0.0215
+\end{align*}<p>Those are the P-values for our trial if the null hypothesis is that the coin is fair and our statistic of interest is the number of “heads”.</p>
+<p>Because those P-values are less than 5%, the results would be called “statistically significant” at the 5% level (it is possible to choose other thresholds). That term is widely known, but seemingly rarely understood.</p>
+<h2 id="what-does-it-mean">What does it mean?</h2>
+<p>Arguably, not all that much. In the words of Ronald A. Fisher (1959), a statistically significant result indicates that “either an exceptionally rare chance has occurred or the theory is not true”. But how are we to distinguish between the two?</p>
+<p>As he said, such a result is one that would be infrequent and therefore surprising if the null hypothesis were correct (say, if our coin really is fair). But the null hypothesis being true and an infrequent result having occurred might still be less surprising than the alternative hypothesis being true and the result being perhaps less infrequent (but possibly not much less if the experiment is underpowered). Thus, in interpreting a P-value, there is no escaping the idea of <em>a priori</em> plausibility that frequentists tend to shy away from. <a href="https://royalsocietypublishing.org/doi/10.1098/rsos.140216">Colquhoun (2014)</a> does a good job of explaining this, albeit with a section dedicated to not sounding Bayesian in doing so.</p>
+<h2 id="a-few-properties-of-p-values">A few properties of P-values</h2>
+<ul>
+<li>
+<p>Under the null hypothesis, P-values are uniformly distributed by construction, since they correspond to the quantile of extremeness (so to speak), under the null hypothesis, of the data obtained. As noted by <a href="https://www.researchgate.net/publication/228711807_Bayesian_Versus_Orthodox_Statistics_Which_Side_Are_You_On">Dienes (2011)</a>, this is in contrast to Bayes factors, which are driven towards zero under the null hypothesis.</p>
+</li>
+<li>
+<p>Since the definition of the P-value is based on the probability of getting data “at least as extreme”, it is sensitive to stopping rules, because they affect the set of more extreme data that you could get if things were to play out differently. <a href="https://www.acpjournals.org/doi/10.7326/0003-4819-130-12-199906150-00008">Goodman (1999)</a> provides a good example, and notes:</p>
+<blockquote>
+<p>This problem also has implications for the design of experiments. Because frequentist inference requires the “long run” to be unambiguous, frequentist designs need to be rigid (for example, requiring fixed sample sizes and pre-specified stopping rules), features that many regard as requirements of science rather than as artifacts of a particular inferential philosophy.</p></blockquote>
+<p><a href="https://jkkweb.sitehost.iu.edu/articles/Kruschke2013JEPG.pdf">Kruschke (2013)</a> goes further:</p>
+<blockquote>
+<p>Importantly, the space of all possible $t_\text{null}$ values that might have
+been observed is defined by how the data were intended to be
+sampled. […]</p>
+<p>It is important to recognize that NHST [null hypothesis significance testing] cannot be salvaged by attempting to fix or set the sampling intention explicitly in advance. For example, consider two researchers who are interested in the effects of a smart drug on IQ. They collect data from identical conditions. The first researcher obtains the data shown in Figure 3. The second researcher happens to obtain identical data (or at least data with identical $t_\text{obs}$ and $N_\text{obs}$). Should the conclusions of the researchers be the same? Common sense, and scientific acumen, suggests that the conclusions should indeed be the same because the data are the same. But NHST says no, the conclusions should be different, because, it turns out, the first researcher collected the data with the explicit intention to stop at the end of the week and compare with another group of data to be collected the next week, and the second researcher collected the data with the explicit intention to stop when a threshold sample size of $N_1 = N_2 = 50$ was achieved but had an unexpected interruption.</p>
+<p>[…]</p>
+<p>There is no reason to base statistical significance on whether the experimenter intended to stop collecting data when $N = 47$ or when the clock reached 5:00 p.m.</p></blockquote>
+</li>
+<li>
+<p>“Statistically significant” is not the magic incantation that it’s sometimes made out to be. It means that “under the model being considered, such data would be somewhat infrequent if the null hypothesis were true”. That’s all.</p>
+</li>
+<li>
+<p>Relatedly, a misconception that one occasionally sees is the idea that the P-value is the probability that the data were “due to chance alone”. But this would be equivalent to saying that it’s the probability that the null hypothesis is true, i.e. that it’s $P(H_0 \mid \text{data})$ (a Bayesian interpretation – which should be a hint that that’s not what it means), which is quite different from what it really is: the probability, <em>assuming</em> that the null hypothesis is true, that one would see such data, i.e. $P(\text{data as extreme} \mid H_0)$ (<em>if</em> we were to perform the trial infinitely many times).</p>
+</li>
+<li>
+<p>Likewise, be wary of attempts to explain P-values in terms of error rates. It is sometimes claimed that the P-value is the probability of being wrong if you reject the null hypothesis, but that’s just yet another restatement of the Bayesian interpretation that P-values don’t have (the probability, given that you reject the null hypothesis, of the null hypothesis being true after all). Indeed, if the null hypothesis is true, then 100% of its rejections are wrong. If you throw a 20-faced die that you are quite sure is fair, and you reject the null hypothesis that it is fair whenever you land a 20, are you right 95% of the time you do that?</p>
+</li>
+</ul>
+<h2 id="conclusion-and-further-reading">Conclusion and further reading</h2>
+<p>I don’t wish to presume too much about the understanding you had of P-values before reading this, but in case there was anything unclear to you about them, I hope that this has shed some light on the concept and some of its pitfalls.</p>
+<p>If you’d like to explore the subject further, I can recommend the following articles:</p>
+<ul>
+<li>
+<p><a href="https://www.tandfonline.com/doi/full/10.1080/00031305.2019.1583913">“Moving to a World Beyond ‘$p < 0.05$’ ”</a> by Ronald L. Wasserstein, Allen L. Schirm and Nicole A. Lazar (2019). DOI: 10.1080/00031305.2019.1583913</p>
+<p>Three editors from the American Statistical Association express their personal opinion that “it is time to stop using the term ‘statistically significant’ entirely”.</p>
+</li>
+<li>
+<p><a href="https://rss.onlinelibrary.wiley.com/doi/10.1111/1740-9713.01505">“The <em>p</em>-value statement, five years on”</a> by Robert Matthews (2021). DOI: 10.1111/1740-9713.01505</p>
+</li>
+<li>
+<p><a href="https://www.researchgate.net/publication/228711807_Bayesian_Versus_Orthodox_Statistics_Which_Side_Are_You_On">“Bayesian Versus Orthodox Statistics: Which Side Are You On?”</a> by Zoltan Dienes (2011). DOI: 10.1177/1745691611406920</p>
+</li>
+<li>
+<p><a href="https://royalsocietypublishing.org/doi/10.1098/rsos.140216">“An investigation of the false discovery rate and the misinterpretation of <em>p</em>-values”</a> by David Colquhoun (2014). DOI: 10.1098/rsos.140216</p>
+</li>
+<li>
+<p><a href="https://sixsigmadsi.com/wp-content/uploads/2020/10/A-Dirty-Dozen-Twelve-P-Value-Misconceptions.pdf">“A Dirty Dozen: Twelve <em>P</em>-Value Misconceptions”</a>, by Steven N. Goodman (2008). DOI: <a href="https://doi.org/10.1053/j.seminhematol.2008.04.003">10.1053/j.seminhematol.2008.04.003</a></p>
+</li>
+<li>
+<p><a href="https://www.sciencedirect.com/science/article/abs/pii/S1053535704000927">“Mindless statistics”</a> by Gerd Gigerenzer (2004). DOI: 10.1016/j.socec.2004.09.033</p>
+</li>
+<li>
+<p><a href="https://www.jstor.org/stable/30037265">“Confusion over Measures of Evidence ($p$’s) versus Errors ($\alpha$’s) in Classical Statistical Testing”</a> by Raymond Hubbard, M. J. Bayarri, Kenneth N. Berk and Matthew A. Carlton (2003).</p>
+</li>
+<li>
+<p><a href="https://www.acpjournals.org/doi/10.7326/0003-4819-130-12-199906150-00008">“Toward Evidence-Based Medical Statistics. 1: The <em>P</em> Value Fallacy”</a> by Steven N. Goodman (1999). DOI: 10.7326/0003-4819-130-12-199906150-00008</p>
+</li>
+<li>
+<p><a href="https://jkkweb.sitehost.iu.edu/articles/Kruschke2013JEPG.pdf">“Bayesian Estimation Supersedes the <em>t</em> Test”</a> by John K. Kruschke (2013), DOI: <a href="https://doi.org/10.1037/a0029146">10.1037/a0029146</a></p>
+</li>
+</ul>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/statistics/jaynes/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">Articles by Edwin Thompson Jaynes</span>
+                <span class="prev-text nav-mobile">Prev</span>
+              </a>
+            
+              <a class="next" href="/post/statistics/confidence-intervals/">
+                <span class="next-text nav-default">Confidence Intervals</span>
+                <span class="prev-text nav-mobile">Next</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+
+
+      
+      
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+    
+
+  
+
+  
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">Table of Contents</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction-frequentism-and-bayesianism">Introduction: frequentism and Bayesianism</a></li>
+    <li><a href="#what-is-a-p-value">What is a P-value?</a></li>
+    <li><a href="#what-does-it-mean">What does it mean?</a></li>
+    <li><a href="#a-few-properties-of-p-values">A few properties of P-values</a></li>
+    <li><a href="#conclusion-and-further-reading">Conclusion and further reading</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+
+<a href="https://sami.boo/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+       -
+    2025
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        Sami
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.7.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.0cf2fc4911e5216d39fed0e657b91fa9d4a2ec70d54f87ceb192dbef8a2e2d51.js" integrity="sha256-DPL8SRHlIW05/tDmV7kfqdSi7HDVT4fOsZLb74ouLVE=" crossorigin="anonymous"></script>
+
+
+
+  <script src="https://polyfill-fastly.io/v3/polyfill.min.js?features=es6"></script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  },
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,72 @@
+<?xml-stylesheet type="text/xsl" href="https://sami.boo/sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://sami.boo/post/</loc>
+    <lastmod>2024-05-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sami.boo/</loc>
+    <lastmod>2024-05-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sami.boo/post/statistics/sleeping-beauty/</loc>
+    <lastmod>2024-04-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sami.boo/post/statistics/representative-sample/</loc>
+    <lastmod>2024-04-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sami.boo/post/statistics/population-level-differences/</loc>
+    <lastmod>2024-03-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sami.boo/post/statistics/jaynes/</loc>
+    <lastmod>2024-03-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sami.boo/jaynes/confidence-intervals-vs-bayesian-intervals/</loc>
+    <lastmod>2024-03-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sami.boo/jaynes/</loc>
+    <lastmod>2024-03-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sami.boo/jaynes/whats-wrong-with-bayesian-methods/</loc>
+    <lastmod>2024-03-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sami.boo/post/statistics/p-values/</loc>
+    <lastmod>2024-01-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sami.boo/post/statistics/confidence-intervals/</loc>
+    <lastmod>2024-01-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sami.boo/panoramas/</loc>
+    <lastmod>2024-01-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sami.boo/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://sami.boo/tags/</loc>
+  </url>
+  
+</urlset>

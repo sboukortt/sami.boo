@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jaynes on Sami</title>
+    <link>https://sami.boo/jaynes/</link>
+    <description>Recent content in Jaynes on Sami</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 08 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://sami.boo/jaynes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Confidence Intervals vs Bayesian Intervals</title>
+      <link>https://sami.boo/jaynes/confidence-intervals-vs-bayesian-intervals/</link>
+      <pubDate>Fri, 08 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://sami.boo/jaynes/confidence-intervals-vs-bayesian-intervals/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Article by &lt;strong&gt;Edwin Thompson Jaynes, 1976&lt;/strong&gt;; original at: &lt;a href=&#34;https://bayes.wustl.edu/etj/articles/confidence.pdf&#34;&gt;https://bayes.wustl.edu/etj/articles/confidence.pdf&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;abstract&#34;&gt;Abstract&lt;/h2&gt;&#xA;&lt;p&gt;For many years, statistics textbooks have followed this ‘canonical’ procedure: (1) the reader is warned not to use the discredited methods of Bayes and Laplace, (2) an orthodox method is extolled as superior and applied to a few simple problems, (3) the corresponding Bayesian solutions are not worked out or described in any way. The net result is that no evidence whatsoever is offered to substantiate the claim of superiority of the orthodox method.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>What&#39;s Wrong with Bayesian Methods?</title>
+      <link>https://sami.boo/jaynes/whats-wrong-with-bayesian-methods/</link>
+      <pubDate>Fri, 08 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://sami.boo/jaynes/whats-wrong-with-bayesian-methods/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Article by &lt;strong&gt;Edwin Thompson Jaynes, April 1984&lt;/strong&gt;; original at: &lt;a href=&#34;https://bayes.wustl.edu/etj/articles/bayesian.methods.pdf&#34;&gt;https://bayes.wustl.edu/etj/articles/bayesian.methods.pdf&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Our title is the title of a talk given in Cambridge on Feb. 3, 1984, by Professor G. A. Barnard. For him it was a question to be taken seriously, and answered seriously. But for us it is only a rhetorical question; for while we see many things in Bayesian methods that are still incomplete and in need of further technical development, we are unable to see anything basically wrong with them.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
